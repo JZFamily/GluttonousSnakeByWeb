@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset ="utf-8">
+<!--
+jidzh@2018-02-03,for pratice
+-->
+	<title>
+		practice
+	</title>
+		<style>
+	 #test div{
+				position : absolute;
+				left:	0px;
+				top:	0px;
+				width:	50px;
+				height:	50px;
+				background:	blue;
+				text-align:	center;
+				line-height: 50px;
+				font-size:	24px;
+				color:#fff
+				
+			}
+	</style>
+</head>
+
+<body>
+	<div id ='test'>
+		<div><img src ="huihui.png"></div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+	</div>
+	<script>
+			var test = document.getElementById("test");
+			oDiv = test.getElementsByTagName("div");
+			for(var i= oDiv.length-1;i >=0 ;i--)
+			{
+				console.log(i);
+				oDiv[i].style.left =(oDiv.length-1-i)*50+"px";
+			}
+			document.onkeydown =function(e){
+					for(var i= oDiv.length-1;i>0;i--)
+					{
+						console.log(i);
+						oDiv[i].style.left =oDiv[i-1].offsetLeft+'px';
+						oDiv[i].style.top =oDiv[i-1].offsetTop+'px';
+					}
+				var e =window.event||e;
+				switch(e.keyCode)
+				{
+					case 37:
+					oDiv[0].style.left = oDiv[0].offsetLeft-50+'px';
+					break;
+					case 38:
+					oDiv[0].style.top = oDiv[0].offsetTop-50+'px';
+					break;
+					case 39:
+						oDiv[0].style.left = oDiv[0].offsetLeft+50+'px';
+					break;
+					case 40:
+					oDiv[0].style.top = oDiv[0].offsetTop+50+'px';
+					break;
+				}
+			}
+	</script>
+<!--
+<a href =""	> 超链接</a>
+-->
+</body>
+</html>
